@@ -1,4 +1,6 @@
 ---
+import { url } from '../lib/url';
+
 interface Props {
   activeRoute?: string;
 }
@@ -22,9 +24,9 @@ const isActive = (href: string) => {
 
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-ash">
   <div class="container-page flex items-center justify-between h-20">
-    <a href="/" class="flex items-center gap-3" aria-label="Lahsiv Foundation home">
+    <a href={url('/')} class="flex items-center gap-3" aria-label="Lahsiv Foundation home">
       <img
-        src="/images/logo.png"
+        src={url('/images/logo.png')}
         alt="Lahsiv Foundation"
         class="h-12 w-auto"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
@@ -41,7 +43,7 @@ const isActive = (href: string) => {
         {navItems.map((item) => (
           <li>
             <a
-              href={item.href}
+              href={url(item.href)}
               class:list={[
                 'text-sm font-medium transition-colors',
                 isActive(item.href)
@@ -57,7 +59,7 @@ const isActive = (href: string) => {
       </ul>
     </nav>
 
-    <a href="/contact#donate" class="hidden lg:inline-flex btn-coral text-sm px-5 py-2.5">
+    <a href={url('/contact#donate')} class="hidden lg:inline-flex btn-coral text-sm px-5 py-2.5">
       Donate
     </a>
 
@@ -83,7 +85,7 @@ const isActive = (href: string) => {
       {navItems.map((item) => (
         <li>
           <a
-            href={item.href}
+            href={url(item.href)}
             class:list={[
               'block py-3 px-2 rounded-lg text-base font-medium transition-colors',
               isActive(item.href)
@@ -97,7 +99,7 @@ const isActive = (href: string) => {
         </li>
       ))}
       <li class="pt-2">
-        <a href="/contact#donate" class="btn-coral w-full">Donate</a>
+        <a href={url('/contact#donate')} class="btn-coral w-full">Donate</a>
       </li>
     </ul>
   </nav>

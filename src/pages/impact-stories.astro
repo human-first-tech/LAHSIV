@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import ImpactCard from '../components/ImpactCard.astro';
+import { url } from '../lib/url';
 
 const initiatives = [
   {
@@ -52,7 +53,7 @@ const initiatives = [
             ></div>
             <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sand border border-ash shadow-lg">
               <img
-                src="/images/impact/varsha.jpg"
+                src={url('/images/impact/varsha.jpg')}
                 alt="R. P. Varsha in her nursing uniform"
                 class="w-full h-full object-cover"
               />
@@ -166,7 +167,7 @@ const initiatives = [
           </p>
         </div>
         <div class="col-span-12 md:col-span-4 md:justify-self-end">
-          <a href="/contact#donate" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+          <a href={url('/contact#donate')} class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
             Donate
           </a>
         </div>

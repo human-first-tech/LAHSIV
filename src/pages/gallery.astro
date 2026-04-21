@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import AlbumCard from '../components/AlbumCard.astro';
+import { url } from '../lib/url';
 
 const events = await getCollection('events');
 
@@ -140,7 +141,7 @@ const formatDate = (iso: string) => {
           </p>
         </div>
         <div class="col-span-12 md:col-span-4 md:justify-self-end">
-          <a href="/contact" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+          <a href={url('/contact')} class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
             Get in touch
           </a>
         </div>

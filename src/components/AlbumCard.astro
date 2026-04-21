@@ -1,4 +1,6 @@
 ---
+import { url } from '../lib/url';
+
 interface Props {
   title: string;
   cover: string;
@@ -12,12 +14,12 @@ const { title, cover, date, count, slug, featured = false } = Astro.props;
 ---
 
 <a
-  href={`/gallery/${slug}`}
+  href={url(`/gallery/${slug}`)}
   class={`group relative block overflow-hidden rounded-2xl border border-ash shadow-sm hover:shadow-xl transition-all duration-500 ${featured ? 'aspect-[16/9]' : 'aspect-[4/5]'}`}
 >
   <!-- Cover image -->
   <img
-    src={cover}
+    src={url(cover)}
     alt={`${title} cover photo`}
     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
     onerror="this.style.display='none';"

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
+import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -16,7 +17,7 @@ const { Content } = await event.render();
 
 const photos =
   event.data.photos?.map((filename, i) => ({
-    src: `/images/gallery/${event.slug}/${filename}`,
+    src: url(`/images/gallery/${event.slug}/${filename}`),
     alt: `${event.data.title} — photo ${i + 1}`,
   })) ?? [];
 
@@ -41,7 +42,7 @@ const formattedDate = (() => {
   <section class="relative overflow-hidden bg-teal">
     <div class="absolute inset-0">
       <img
-        src={event.data.cover}
+        src={url(event.data.cover)}
         alt={`${event.data.title} cover`}
         class="w-full h-full object-cover"
         onerror="this.style.display='none';"
@@ -61,7 +62,7 @@ const formattedDate = (() => {
 
     <div class="relative container-page py-24 md:py-36">
       <a
-        href="/gallery"
+        href={url('/gallery')}
         class="inline-flex items-center gap-2 text-sand/90 text-sm hover:text-sand transition-colors mb-10 group"
       >
         <span aria-hidden="true" class="transition-transform duration-300 group-hover:-translate-x-1">←</span>
@@ -168,10 +169,10 @@ const formattedDate = (() => {
           </p>
         </div>
         <div class="col-span-12 md:col-span-4 md:justify-self-end flex flex-col sm:flex-row gap-3">
-          <a href="/gallery" class="btn-coral text-base px-7 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+          <a href={url('/gallery')} class="btn-coral text-base px-7 py-4 whitespace-nowrap shadow-lg shadow-black/20">
             All albums
           </a>
-          <a href="/impact-stories" class="btn border-2 border-sand/80 text-sand hover:bg-sand hover:text-teal hover:-translate-y-0.5 px-7 py-4 whitespace-nowrap">
+          <a href={url('/impact-stories')} class="btn border-2 border-sand/80 text-sand hover:bg-sand hover:text-teal hover:-translate-y-0.5 px-7 py-4 whitespace-nowrap">
             Impact stories
           </a>
         </div>

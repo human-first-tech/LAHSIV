@@ -2,27 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import DirectorCard from '../components/DirectorCard.astro';
+import { url } from '../lib/url';
 
 const directors = [
   {
     name: 'Dweepanjali',
     role: 'Director',
-    photoPath: '/images/directors/dweepanjali.jpg',
+    photoPath: url('/images/directors/dweepanjali.jpg'),
   },
   {
     name: 'Sankalp Kumar Singh',
     role: 'Director',
-    photoPath: '/images/directors/sankalp.jpg',
+    photoPath: url('/images/directors/sankalp.jpg'),
   },
   {
     name: 'R. Siva Sundaram',
     role: 'Director',
-    photoPath: '/images/directors/siva-sundaram.jpg',
+    photoPath: url('/images/directors/siva-sundaram.jpg'),
   },
   {
     name: 'Dr. Jai Dev Singh',
     role: 'Volunteer Coordinator',
-    photoPath: '/images/directors/jai-dev-singh.jpg',
+    photoPath: url('/images/directors/jai-dev-singh.jpg'),
   },
 ];
 ---
@@ -165,7 +166,7 @@ const directors = [
         </h2>
         <p class="mt-2 text-white/85">From a classroom to a football field — your support multiplies ours.</p>
       </div>
-      <a href="/contact" class="btn-coral text-base px-7 py-3.5 whitespace-nowrap shadow-lg shadow-teal-deep/30">
+      <a href={url('/contact')} class="btn-coral text-base px-7 py-3.5 whitespace-nowrap shadow-lg shadow-teal-deep/30">
         Get in touch
       </a>
     </div>

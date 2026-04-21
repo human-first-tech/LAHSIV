@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProgramCard from '../components/ProgramCard.astro';
 import ImpactStat from '../components/ImpactStat.astro';
+import { url } from '../lib/url';
 ---
 
 <BaseLayout
@@ -13,7 +14,7 @@ import ImpactStat from '../components/ImpactStat.astro';
   <Hero
     headline="LAHSIV"
     subheadline="Nurturing sports talent and promoting girl child education in the Andaman and Nicobar Islands"
-    primaryCTA={{ label: 'Our Work', href: '/work' }}
+    primaryCTA={{ label: 'Our Work', href: url('/work') }}
   />
 
   <!-- MISSION -->
@@ -43,7 +44,7 @@ import ImpactStat from '../components/ImpactStat.astro';
             </p>
           </div>
 
-          <a href="/about" class="mt-10 inline-flex items-center gap-2 font-medium text-teal group">
+          <a href={url('/about')} class="mt-10 inline-flex items-center gap-2 font-medium text-teal group">
             <span class="border-b border-coral/60 pb-0.5 group-hover:border-coral transition-colors">Learn more</span>
             <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
@@ -60,7 +61,7 @@ import ImpactStat from '../components/ImpactStat.astro';
             <!-- Image -->
             <div class="rounded-2xl overflow-hidden bg-white border border-ash shadow-xl">
               <img
-                src="/images/mission.jpg"
+                src={url('/images/mission.jpg')}
                 alt="Lahsiv Foundation — RISE and SHINE programs"
                 class="w-full h-auto object-cover"
                 onerror="this.style.display='none';"
@@ -95,14 +96,14 @@ import ImpactStat from '../components/ImpactStat.astro';
           title="RISE"
           tagline="Reach · Inspire · Support · Educate"
           body="Empowering girls through access to quality education, mentorship, and the resources they need to pursue their dreams."
-          href="/work#rise"
+          href={url('/work#rise')}
         />
         <ProgramCard
           icon="football"
           title="SHINE"
           tagline="Support · Harness · Inspire · Nurture · Elevate"
           body="Nurturing tribal youth football talent in the Andaman and Nicobar Islands through training, mentorship, and opportunity."
-          href="/work#shine"
+          href={url('/work#shine')}
         />
       </div>
     </div>
@@ -134,7 +135,7 @@ import ImpactStat from '../components/ImpactStat.astro';
       </div>
 
       <div class="mt-16 md:mt-20 text-center">
-        <a href="/impact-stories" class="inline-flex items-center gap-2 font-medium text-teal group">
+        <a href={url('/impact-stories')} class="inline-flex items-center gap-2 font-medium text-teal group">
           <span class="border-b border-coral/60 pb-0.5 group-hover:border-coral transition-colors">Read impact stories</span>
           <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover:translate-x-1">→</span>
         </a>
@@ -168,7 +169,7 @@ import ImpactStat from '../components/ImpactStat.astro';
           </p>
         </div>
         <div class="col-span-12 md:col-span-4 md:justify-self-end">
-          <a href="/contact" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+          <a href={url('/contact')} class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
             Contact us
           </a>
         </div>
