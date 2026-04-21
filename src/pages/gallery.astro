@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import AlbumCard from '../components/AlbumCard.astro';
+
+const events = await getCollection('events');
+
+const albums = events
+  .map((e) => ({
+    title: e.data.title,
+    cover: e.data.cover,
+    date: e.data.date,
+    count: e.data.photos?.length ?? 0,
+    slug: e.slug,
+    rawDate: new Date(e.data.date),
+  }))
+  .sort((a, b) => b.rawDate.getTime() - a.rawDate.getTime());
+
+const [featured, ...rest] = albums;
+
+const formatDate = (iso: string) => {
+  try {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch {
+    return iso;
+  }
+};
+---
+
+<BaseLayout
+  title="Gallery"
+  description="Photo albums from Lahsiv Foundation events, matches, and community work in the Andaman and Nicobar Islands."
+  activeRoute="/gallery"
+>
+  <PageHeader
+    eyebrow="Gallery"
+    title="Gallery"
+    subtitle="Moments from our work on the ground — in classrooms, on fields, across the islands."
+  />
+
+  <!-- INTRO + ALBUMS -->
+  <section class="section-padding">
+    <div class="container-page">
+      {albums.length === 0 ? (
+        <div class="text-center py-16">
+          <p class="font-serif text-2xl text-teal italic">No albums yet.</p>
+          <p class="mt-3 text-stone">Check back soon — we're building the archive.</p>
+        </div>
+      ) : (
+        <>
+          <!-- Editorial intro -->
+          <div class="grid grid-cols-12 gap-6 md:gap-12 mb-14 md:mb-20">
+            <div class="col-span-12 md:col-span-7">
+              <p class="eyebrow">A visual archive</p>
+              <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+              <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.05]">
+                Moments that <span class="italic">tell our story</span>.
+              </h2>
+            </div>
+            <div class="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
+              <p class="text-body-lg text-ink/75 leading-relaxed">
+                Each album captures a chapter of our community's journey — the faces, fields, and futures we're building together.
+              </p>
+            </div>
+          </div>
+
+          {featured && (
+            <div class="mb-8 md:mb-10">
+              <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3 mb-5">
+                <span aria-hidden="true" class="block w-6 h-px bg-coral"></span>
+                Latest Album
+              </p>
+              <AlbumCard
+                title={featured.title}
+                cover={featured.cover}
+                date={formatDate(featured.date)}
+                count={featured.count}
+                slug={featured.slug}
+                featured
+              />
+            </div>
+          )}
+
+          {rest.length > 0 && (
+            <div class="mt-16">
+              <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3 mb-5">
+                <span aria-hidden="true" class="block w-6 h-px bg-coral"></span>
+                Earlier Albums
+              </p>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {rest.map((album) => (
+                  <AlbumCard
+                    title={album.title}
+                    cover={album.cover}
+                    date={formatDate(album.date)}
+                    count={album.count}
+                    slug={album.slug}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+        </>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA — richer teal band -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute -top-24 -right-20 w-[28rem] h-[28rem] rounded-full bg-coral/20 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute -bottom-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-sand/15 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #FFF3B0 1px, transparent 0); background-size: 28px 28px;"
+    ></div>
+
+    <div class="relative container-page py-20 md:py-28">
+      <div class="grid grid-cols-12 gap-8 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <div aria-hidden="true" class="mb-6 flex items-center gap-3">
+            <span class="block h-px w-10 bg-coral"></span>
+            <span class="text-coral text-xs font-semibold tracking-[0.25em] uppercase">From the field</span>
+          </div>
+          <h2 class="font-serif text-3xl md:text-5xl text-sand leading-[1.1]">
+            Want to host or <span class="italic">sponsor</span> an event?
+          </h2>
+          <p class="mt-5 text-white/85 text-lg md:text-xl max-w-xl leading-relaxed">
+            Every match, class, and gathering starts with people who show up. Reach out to be part of the next one.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:justify-self-end">
+          <a href="/contact" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

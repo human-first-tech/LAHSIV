@@ -1,0 +1,21 @@
+---
+interface Props {
+  number: string;
+  label: string;
+}
+
+const { number, label } = Astro.props;
+---
+
+<div class="relative text-center">
+  <div class="font-serif text-6xl md:text-8xl text-coral font-semibold leading-none [font-variant-numeric:oldstyle-nums]">
+    {number}
+  </div>
+  <div
+    aria-hidden="true"
+    class="mx-auto mt-5 mb-5 h-px w-12 bg-coral/60"
+  ></div>
+  <p class="text-ink/80 leading-relaxed max-w-xs mx-auto text-sm md:text-base">
+    {label}
+  </p>
+</div>

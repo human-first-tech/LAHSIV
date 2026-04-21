@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import DirectorCard from '../components/DirectorCard.astro';
+
+const directors = [
+  {
+    name: 'Dweepanjali',
+    role: 'Director',
+    photoPath: '/images/directors/dweepanjali.jpg',
+  },
+  {
+    name: 'Sankalp Kumar Singh',
+    role: 'Director',
+    photoPath: '/images/directors/sankalp.jpg',
+  },
+  {
+    name: 'R. Siva Sundaram',
+    role: 'Director',
+    photoPath: '/images/directors/siva-sundaram.jpg',
+  },
+  {
+    name: 'Dr. Jai Dev Singh',
+    role: 'Volunteer Coordinator',
+    photoPath: '/images/directors/jai-dev-singh.jpg',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Lahsiv Foundation is a non-governmental organization in the Andaman and Nicobar Islands dedicated to empowering girls through education and nurturing young sports talent."
+  activeRoute="/about"
+>
+  <PageHeader
+    eyebrow="About"
+    title="About Us"
+    subtitle="Based in the Andaman and Nicobar Islands, rooted in the belief that every child deserves a chance to dream big and rise higher."
+  />
+
+  <!-- WHO WE ARE — editorial asymmetric layout -->
+  <section class="section-padding relative overflow-hidden">
+    <div class="container-page relative grid grid-cols-12 gap-6 md:gap-12">
+      <!-- Left rail: eyebrow + vertical rule + small caption -->
+      <aside class="col-span-12 md:col-span-3 lg:col-span-3">
+        <div class="md:sticky md:top-32">
+          <p class="eyebrow">The Foundation</p>
+          <div
+            aria-hidden="true"
+            class="mt-4 mb-6 h-px w-16 bg-coral"
+          ></div>
+          <h2 class="font-serif text-3xl md:text-4xl text-teal leading-[1.05]">
+            Who we are
+          </h2>
+          <p class="mt-6 text-sm tracking-[0.2em] uppercase text-stone font-medium">
+            Andaman &amp; Nicobar&nbsp;Islands
+          </p>
+        </div>
+      </aside>
+
+      <!-- Right column: editorial body with drop-cap lead -->
+      <div class="col-span-12 md:col-span-9 lg:col-span-8 lg:col-start-5">
+        <p
+          class="font-serif text-2xl md:text-3xl text-ink leading-[1.4] first-letter:font-serif first-letter:font-semibold first-letter:text-[5.5rem] md:first-letter:text-[7rem] first-letter:leading-[0.85] first-letter:text-coral first-letter:float-left first-letter:pr-3 first-letter:pt-2 first-letter:-ml-1"
+        >
+          Lahsiv is a non-governmental organization rooted in the belief that every child deserves a chance to dream big and rise higher. Based in the Andaman and Nicobar Islands, we are dedicated to two powerful missions: empowering girls through education, and nurturing young sports talent, particularly in football.
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-8 text-body-lg text-ink/85 leading-relaxed">
+          <p>
+            We provide access to quality learning, mentorship, and essential resources so that girls can thrive academically and young athletes can grow into champions. Whether it's a classroom or a football field, Lahsiv creates opportunities for youth to explore their full potential.
+          </p>
+          <p>
+            At Lahsiv, we're not just supporting individuals — we're building a brighter, more inclusive future. Because when girls learn and youth play, entire communities rise.
+          </p>
+        </div>
+
+        <!-- Inline stat strip -->
+        <div class="mt-14 grid grid-cols-3 gap-4 md:gap-8 border-t border-ash pt-10">
+          <div>
+            <p class="font-serif text-3xl md:text-4xl text-teal">2&nbsp;<span class="text-coral">·</span></p>
+            <p class="mt-2 text-xs tracking-[0.18em] uppercase text-stone font-medium">Programs</p>
+          </div>
+          <div>
+            <p class="font-serif text-3xl md:text-4xl text-teal">75+</p>
+            <p class="mt-2 text-xs tracking-[0.18em] uppercase text-stone font-medium">Girls Supported</p>
+          </div>
+          <div>
+            <p class="font-serif text-3xl md:text-4xl text-teal">2021</p>
+            <p class="mt-2 text-xs tracking-[0.18em] uppercase text-stone font-medium">Since</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE BAND — sand wash for visual break -->
+  <section class="relative bg-sand/60 border-y border-sand">
+    <!-- Decorative quotation glyph -->
+    <span
+      aria-hidden="true"
+      class="absolute left-8 md:left-24 top-4 md:top-8 font-serif text-[10rem] md:text-[16rem] leading-none text-coral/25 select-none pointer-events-none"
+    >
+      &ldquo;
+    </span>
+    <div class="relative container-page py-20 md:py-28 text-center">
+      <blockquote class="font-serif italic text-2xl md:text-4xl text-teal leading-[1.35] max-w-3xl mx-auto">
+        When girls learn and youth play, entire communities rise.
+      </blockquote>
+      <div aria-hidden="true" class="mx-auto mt-10 w-20 h-px bg-coral"></div>
+      <p class="mt-6 text-xs md:text-sm tracking-[0.25em] uppercase text-coral font-semibold">
+        Lahsiv Foundation
+      </p>
+    </div>
+  </section>
+
+  <!-- MEET THE TEAM — richer grid -->
+  <section class="section-padding relative overflow-hidden">
+    <div class="container-page relative">
+      <div class="grid grid-cols-12 gap-6 md:gap-12 mb-16 md:mb-20">
+        <div class="col-span-12 md:col-span-4">
+          <p class="eyebrow">The Team</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+          <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.05]">
+            Meet the <span class="italic">team</span>
+          </h2>
+        </div>
+        <div class="col-span-12 md:col-span-7 md:col-start-6 flex items-end">
+          <p class="text-body-lg text-ink/80 leading-relaxed">
+            The people behind Lahsiv Foundation, committed to building a brighter future for the Andaman and Nicobar Islands.
+          </p>
+        </div>
+      </div>
+
+      <!-- Offset rhythm: alternate cards are pulled up slightly -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 md:gap-x-8">
+        {directors.map((d, i) => (
+          <div class={`${i % 2 === 1 ? 'lg:translate-y-10' : ''}`}>
+            <DirectorCard
+              name={d.name}
+              role={d.role}
+              photoPath={d.photoPath}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing note strip -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-coral/25 blur-3xl"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #FFF3B0 1px, transparent 0); background-size: 28px 28px;"
+    ></div>
+    <div class="relative container-page py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <h2 class="font-serif text-2xl md:text-3xl text-sand">
+          Walk with us on the journey.
+        </h2>
+        <p class="mt-2 text-white/85">From a classroom to a football field — your support multiplies ours.</p>
+      </div>
+      <a href="/contact" class="btn-coral text-base px-7 py-3.5 whitespace-nowrap shadow-lg shadow-teal-deep/30">
+        Get in touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

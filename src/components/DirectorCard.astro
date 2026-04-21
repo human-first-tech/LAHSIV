@@ -1,0 +1,52 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  photoPath: string;
+  bio?: string;
+}
+
+const { name, role, photoPath, bio } = Astro.props;
+const initials = name
+  .split(' ')
+  .filter((w) => !w.endsWith('.'))
+  .slice(0, 2)
+  .map((w) => w[0])
+  .join('');
+---
+
+<article class="group relative">
+  <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-sand border border-ash shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+    <img
+      src={photoPath}
+      alt={`Portrait of ${name}`}
+      class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div
+      class="hidden absolute inset-0 items-center justify-center bg-teal text-sand font-serif text-5xl font-semibold"
+      aria-hidden="true"
+    >
+      {initials}
+    </div>
+    <!-- Soft bottom gradient for legibility if we ever float labels here -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-teal/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+    ></div>
+    <!-- Coral accent corner mark -->
+    <div
+      aria-hidden="true"
+      class="absolute top-4 left-4 w-8 h-[2px] bg-coral transition-all duration-500 group-hover:w-12"
+    ></div>
+  </div>
+
+  <div class="pt-5">
+    <h3 class="font-serif text-xl md:text-2xl text-teal leading-tight">{name}</h3>
+    <div class="mt-2 flex items-center gap-2">
+      <span aria-hidden="true" class="block w-4 h-px bg-coral"></span>
+      <p class="text-coral text-xs font-semibold tracking-[0.18em] uppercase">{role}</p>
+    </div>
+    {bio && <p class="text-stone mt-3 text-sm leading-relaxed">{bio}</p>}
+  </div>
+</article>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const riseItems = [
+  {
+    letter: 'R',
+    title: 'Reach',
+    body: 'girls in underserved communities and ensure they have access to quality education.',
+  },
+  {
+    letter: 'I',
+    title: 'Inspire',
+    body: 'them to believe in their potential and pursue their dreams.',
+  },
+  {
+    letter: 'S',
+    title: 'Support',
+    body: 'their academic growth with resources, mentorship, and a safe learning environment.',
+  },
+  {
+    letter: 'E',
+    title: 'Educate',
+    body: 'them with the tools and knowledge they need to succeed, both in school and life.',
+  },
+];
+
+const shineItems = [
+  {
+    letter: 'S',
+    title: 'Support',
+    body: 'tribal youth with access to training, mentorship, and resources.',
+  },
+  {
+    letter: 'H',
+    title: 'Harness',
+    body: 'their natural talent and channel their energy positively.',
+  },
+  {
+    letter: 'I',
+    title: 'Inspire',
+    body: 'ambition, teamwork, and leadership through sport.',
+  },
+  {
+    letter: 'N',
+    title: 'Nurture',
+    body: 'personal growth, discipline, and community spirit.',
+  },
+  {
+    letter: 'E',
+    title: 'Elevate',
+    body: 'them to reach their highest potential, both on and off the field.',
+  },
+];
+---
+
+<BaseLayout
+  title="Our Work"
+  description="Lahsiv Foundation's two programs: RISE empowers girls through education, and SHINE nurtures tribal football talent in the Andaman and Nicobar Islands."
+  activeRoute="/work"
+>
+  <PageHeader
+    eyebrow="Programs"
+    title="Our Work"
+    subtitle="Making an impact through two focused programs — one for classrooms, one for the field."
+  />
+
+  <!-- RISE — chapter opener + acrostic row -->
+  <section id="rise" class="section-padding scroll-mt-24">
+    <div class="container-page">
+      <div class="grid grid-cols-12 gap-6 md:gap-12">
+        <div class="col-span-12 md:col-span-5">
+          <p class="eyebrow">Program One</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+          <h2 class="font-serif text-6xl md:text-8xl text-teal leading-none tracking-tight">RISE</h2>
+          <p class="mt-6 font-serif italic text-xl md:text-2xl text-teal/80 leading-snug">
+            Empowering girls through education.
+          </p>
+          <p class="mt-6 text-xs tracking-[0.28em] uppercase text-coral font-semibold">
+            Reach · Inspire · Support · Educate
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-7 md:pt-4">
+          <p class="text-body-lg text-ink/90 leading-relaxed first-letter:font-serif first-letter:font-semibold first-letter:text-[4.5rem] md:first-letter:text-[5.5rem] first-letter:leading-[0.85] first-letter:text-coral first-letter:float-left first-letter:pr-3 first-letter:pt-2 first-letter:-ml-1">
+            RISE stands for Reach, Inspire, Support, Educate. It reflects our dedication to ensuring that every girl has access to quality education and the opportunity to achieve her dreams. By reaching out to communities, inspiring young girls, providing continuous support, and fostering a love for learning, RISE empowers girls to break barriers and build a brighter future. We believe that education is the key to unlocking limitless possibilities for girls everywhere.
+          </p>
+        </div>
+      </div>
+
+      <!-- Acrostic row -->
+      <div class="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {riseItems.map((item) => (
+          <article class="group relative bg-white border border-ash rounded-2xl p-7 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-coral/40">
+            <div aria-hidden="true" class="absolute top-0 left-7 right-7 h-[2px] bg-coral/30 group-hover:bg-coral transition-colors duration-300"></div>
+            <div class="font-serif font-semibold text-[5rem] md:text-[6rem] text-teal leading-none tracking-tight">
+              {item.letter}
+            </div>
+            <h3 class="mt-4 font-serif text-2xl text-teal">{item.title}</h3>
+            <p class="mt-3 text-ink/85 leading-relaxed text-sm">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SHINE — sand-wash chapter with dot texture -->
+  <section id="shine" class="relative bg-sand/50 border-y border-sand scroll-mt-24 overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.18] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #0F4C5C 1px, transparent 0); background-size: 32px 32px;"
+    ></div>
+    <div class="container-page section-padding relative">
+      <div class="grid grid-cols-12 gap-6 md:gap-12">
+        <div class="col-span-12 md:col-span-5 md:order-2">
+          <p class="eyebrow">Program Two</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+          <h2 class="font-serif text-6xl md:text-8xl text-teal leading-none tracking-tight">SHINE</h2>
+          <p class="mt-6 font-serif italic text-xl md:text-2xl text-teal/80 leading-snug">
+            Nurturing tribal sports talent.
+          </p>
+          <p class="mt-6 text-xs tracking-[0.28em] uppercase text-coral font-semibold">
+            Support · Harness · Inspire · Nurture · Elevate
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-7 md:order-1 md:pt-4">
+          <p class="text-body-lg text-ink/90 leading-relaxed first-letter:font-serif first-letter:font-semibold first-letter:text-[4.5rem] md:first-letter:text-[5.5rem] first-letter:leading-[0.85] first-letter:text-coral first-letter:float-left first-letter:pr-3 first-letter:pt-2 first-letter:-ml-1">
+            SHINE stands for Support, Harness, Inspire, Nurture, Elevate. It is our commitment to using football as a powerful tool to empower tribal youth. By providing access to training, mentorship, and resources, we aim to support and inspire young athletes, nurture their growth, and elevate them to reach their full potential, both on and off the field. SHINE is about building leadership, confidence, and community pride through the beautiful game.
+          </p>
+        </div>
+      </div>
+
+      <!-- Acrostic row -->
+      <div class="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        {shineItems.map((item) => (
+          <article class="group relative bg-white border border-ash rounded-2xl p-7 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-coral/40">
+            <div aria-hidden="true" class="absolute top-0 left-7 right-7 h-[2px] bg-coral/40 group-hover:bg-coral transition-colors duration-300"></div>
+            <div class="font-serif font-semibold text-[5rem] md:text-[6rem] text-coral leading-none tracking-tight">
+              {item.letter}
+            </div>
+            <h3 class="mt-4 font-serif text-2xl text-teal">{item.title}</h3>
+            <p class="mt-3 text-ink/85 leading-relaxed text-sm">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA — teal band with decorative layers, flows into footer -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute -top-24 -right-20 w-[28rem] h-[28rem] rounded-full bg-coral/20 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute -bottom-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-sand/15 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #FFF3B0 1px, transparent 0); background-size: 28px 28px;"
+    ></div>
+
+    <div class="relative container-page py-20 md:py-28">
+      <div class="grid grid-cols-12 gap-8 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <div aria-hidden="true" class="mb-6 flex items-center gap-3">
+            <span class="block h-px w-10 bg-coral"></span>
+            <span class="text-coral text-xs font-semibold tracking-[0.25em] uppercase">From programs to people</span>
+          </div>
+          <h2 class="font-serif text-3xl md:text-5xl text-sand leading-[1.1]">
+            See the <span class="italic">impact</span> of our work.
+          </h2>
+          <p class="mt-5 text-white/85 text-lg md:text-xl max-w-xl leading-relaxed">
+            Read stories from the people we support.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:justify-self-end">
+          <a href="/impact-stories" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+            Impact stories
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

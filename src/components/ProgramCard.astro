@@ -1,0 +1,64 @@
+---
+interface Props {
+  icon: 'book' | 'football';
+  title: string;
+  tagline: string;
+  body: string;
+  href: string;
+  linkLabel?: string;
+  numeral?: string;
+}
+
+const { icon, title, tagline, body, href, linkLabel = 'Read more', numeral } = Astro.props;
+---
+
+<article class="group relative overflow-hidden bg-white border border-ash rounded-2xl p-8 md:p-10 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 h-full flex flex-col">
+  <!-- Decorative background numeral -->
+  {numeral && (
+    <span
+      aria-hidden="true"
+      class="absolute -top-6 right-4 md:right-6 font-serif italic text-[8rem] md:text-[10rem] leading-none text-sand/80 select-none pointer-events-none"
+    >
+      {numeral}
+    </span>
+  )}
+  <!-- Coral accent bar -->
+  <div
+    aria-hidden="true"
+    class="absolute top-0 left-0 h-1 w-16 bg-coral transition-all duration-300 group-hover:w-32"
+  ></div>
+
+  <div class="relative flex items-center gap-4 mb-8">
+    <div class="w-14 h-14 rounded-xl bg-sand flex items-center justify-center text-coral shrink-0 shadow-sm">
+      {icon === 'book' && (
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      )}
+      {icon === 'football' && (
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2l3 5-3 5-3-5 3-5z"></path>
+          <path d="M12 12l5 3-1 5-5-3 1-5z"></path>
+          <path d="M12 12l-5 3 1 5 5-3-1-5z"></path>
+        </svg>
+      )}
+    </div>
+    <div>
+      <h3 class="font-serif text-4xl md:text-5xl text-teal leading-none">{title}</h3>
+    </div>
+  </div>
+
+  <p class="relative text-coral text-xs font-semibold tracking-[0.22em] uppercase flex items-center gap-3 mb-4">
+    <span aria-hidden="true" class="block w-6 h-px bg-coral"></span>
+    {tagline}
+  </p>
+
+  <p class="relative text-ink/85 leading-relaxed flex-1 text-body-lg">{body}</p>
+
+  <a href={href} class="relative mt-8 inline-flex items-center gap-2 font-medium text-teal group/link">
+    <span class="border-b border-coral/60 pb-0.5 group-hover/link:border-coral transition-colors">{linkLabel}</span>
+    <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+  </a>
+</article>

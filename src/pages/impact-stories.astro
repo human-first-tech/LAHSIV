@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ImpactCard from '../components/ImpactCard.astro';
+
+const initiatives = [
+  {
+    title: 'Tiya Roy — Teacher Education',
+    body: 'Financial support to Miss Tiya Roy of Pranab Kanya Sangh, Sri Vijaya Puram, for completing her professional training in Teacher Education (D.El.Ed) at Kolar College of Teacher Education, Karnataka.',
+    number: '01',
+  },
+  {
+    title: '75 Girls — Monthly Sanitary Support',
+    body: 'Providing sanitary material support to 75 underprivileged girls every month, in partnership with Need Base India, a Bangalore-based NGO.',
+    number: '02',
+  },
+  {
+    title: 'Pranab Kanya Sangh — Ongoing Support',
+    body: 'Monthly food support since 2021, and study equipment including laptops provided on request to the residents of Pranab Kanya Sangh, Sri Vijaya Puram.',
+    number: '03',
+  },
+  {
+    title: 'SAI Car Nicobar — Travel Grant',
+    body: 'Travel grant provided to Sports Authority of India athletes from Car Nicobar who participated in National Level Weightlifting in Himachal Pradesh, October 2024.',
+    number: '04',
+  },
+];
+---
+
+<BaseLayout
+  title="Impact Stories"
+  description="Concrete outcomes from Lahsiv Foundation's work — from sponsoring a full nursing course to monthly sanitary support for 75 girls."
+  activeRoute="/impact-stories"
+>
+  <PageHeader
+    eyebrow="Our impact"
+    title="Impact Stories"
+    subtitle="Concrete outcomes from our work across the Andaman and Nicobar Islands and beyond."
+  />
+
+  <!-- FEATURED STORY — editorial portrait + quote layout -->
+  <section class="section-padding relative overflow-hidden">
+    <div class="container-page">
+      <div class="grid grid-cols-12 gap-8 md:gap-14 items-start">
+        <!-- Portrait column -->
+        <div class="col-span-12 md:col-span-5">
+          <div class="relative max-w-sm mx-auto md:mx-0">
+            <!-- Decorative offset frame -->
+            <div
+              aria-hidden="true"
+              class="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-coral/60 -z-10"
+            ></div>
+            <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sand border border-ash shadow-lg">
+              <img
+                src="/images/impact/varsha.jpg"
+                alt="R. P. Varsha in her nursing uniform"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Caption chip -->
+            <div class="absolute -bottom-4 left-4 bg-teal text-sand text-xs tracking-[0.22em] uppercase px-4 py-2 rounded-full font-semibold shadow-md">
+              Featured Story
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote column -->
+        <div class="col-span-12 md:col-span-7 relative">
+          <!-- Large decorative opening quote -->
+          <span
+            aria-hidden="true"
+            class="absolute -top-8 -left-3 md:-top-10 md:-left-4 font-serif text-[9rem] md:text-[12rem] leading-none text-coral/25 select-none pointer-events-none"
+          >
+            &ldquo;
+          </span>
+
+          <p class="eyebrow relative">A journey completed</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+
+          <h2 class="relative font-serif text-3xl md:text-4xl text-teal leading-[1.15]">
+            From an ashram in the Andamans to a <span class="italic">nursing diploma in Chennai</span>.
+          </h2>
+
+          <blockquote class="relative mt-8 space-y-5 font-serif text-lg md:text-xl text-ink/90 leading-[1.7]">
+            <p>
+              I'm R. P. Varsha, a resident of Pranab Kanya Sangha, Andaman and Nicobar Islands. I lost my parents in my childhood so I came to the ashram in my early age. After completing my 12th in science stream, I was interested in nursing. I did not get a chance in Sri Vijaya Puram so I had to travel to Chennai.
+            </p>
+            <p>
+              Fortunately, I was supported by the Lahsiv Foundation who willingly took the responsibility to bear my entire course and hostel fees for a duration of 3 years. I have completed my General Nursing Midwifery (Diploma) course successfully from Apollo School of Nursing, Chennai. <em class="text-teal not-italic font-semibold">The motto of my life is to serve mankind with the profession of nursing.</em>
+            </p>
+          </blockquote>
+
+          <!-- Attribution -->
+          <figcaption class="relative mt-10 pt-6 border-t border-ash">
+            <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3">
+              <span aria-hidden="true" class="block w-6 h-px bg-coral"></span>
+              R. P. Varsha
+            </p>
+            <p class="mt-2 text-sm text-stone">General Nursing Midwifery, Apollo School of Nursing — Chennai</p>
+          </figcaption>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER INITIATIVES — sand-wash chapter with editorial cards -->
+  <section class="relative bg-sand/50 border-y border-sand overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.18] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #0F4C5C 1px, transparent 0); background-size: 32px 32px;"
+    ></div>
+
+    <div class="container-page section-padding relative">
+      <div class="grid grid-cols-12 gap-6 md:gap-12 mb-16 md:mb-20">
+        <div class="col-span-12 md:col-span-7">
+          <p class="eyebrow">More Initiatives</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+          <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.05]">
+            Other ways we <span class="italic">create impact</span>.
+          </h2>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
+          <p class="text-body-lg text-ink/75 leading-relaxed">
+            From monthly support to targeted grants, our work touches communities across the Islands.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        {initiatives.map((item) => (
+          <ImpactCard title={item.title} body={item.body} number={item.number} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA — richer teal band -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="absolute -top-24 -right-20 w-[28rem] h-[28rem] rounded-full bg-coral/20 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute -bottom-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-sand/15 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #FFF3B0 1px, transparent 0); background-size: 28px 28px;"
+    ></div>
+
+    <div class="relative container-page py-20 md:py-28">
+      <div class="grid grid-cols-12 gap-8 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <div aria-hidden="true" class="mb-6 flex items-center gap-3">
+            <span class="block h-px w-10 bg-coral"></span>
+            <span class="text-coral text-xs font-semibold tracking-[0.25em] uppercase">Join the journey</span>
+          </div>
+          <h2 class="font-serif text-3xl md:text-5xl text-sand leading-[1.1]">
+            Help us <span class="italic">do more</span>.
+          </h2>
+          <p class="mt-5 text-white/85 text-lg md:text-xl max-w-xl leading-relaxed">
+            Your support reaches more girls and young athletes every month.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:justify-self-end">
+          <a href="/contact#donate" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+            Donate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

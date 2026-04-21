@@ -1,0 +1,148 @@
+---
+interface Props {
+  formspreeId?: string;
+}
+
+const { formspreeId = 'YOUR_FORMSPREE_ID' } = Astro.props;
+const formAction = `https://formspree.io/f/${formspreeId}`;
+---
+
+<form
+  id="contact-form"
+  action={formAction}
+  method="POST"
+  class="space-y-5"
+  novalidate
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div>
+      <label for="firstName" class="label">First name <span class="text-coral">*</span></label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        required
+        autocomplete="given-name"
+        class="input-field"
+      />
+    </div>
+    <div>
+      <label for="lastName" class="label">Last name <span class="text-coral">*</span></label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        required
+        autocomplete="family-name"
+        class="input-field"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="email" class="label">Email <span class="text-coral">*</span></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      class="input-field"
+    />
+  </div>
+
+  <div>
+    <label for="phone" class="label">Phone <span class="text-stone text-xs">(optional)</span></label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      autocomplete="tel"
+      class="input-field"
+    />
+  </div>
+
+  <div>
+    <label for="message" class="label">Message <span class="text-coral">*</span></label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      minlength="20"
+      rows="5"
+      class="textarea-field"
+      placeholder="Tell us about your inquiry (at least 20 characters)."
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <button type="submit" class="btn-primary">
+      <span class="submit-label">Send message</span>
+      <span class="submit-spinner hidden ml-2" aria-hidden="true">…</span>
+    </button>
+    <div id="form-status" class="text-sm" role="status" aria-live="polite"></div>
+  </div>
+
+  <p id="form-success" class="hidden p-4 rounded-lg bg-forest/10 border border-forest/30 text-forest text-sm">
+    Thank you. We'll be in touch shortly.
+  </p>
+  <p id="form-error" class="hidden p-4 rounded-lg bg-coral/10 border border-coral/40 text-coral text-sm">
+    Something went wrong. Please try again or email us directly at
+    <a href="mailto:lahsivfoundation@gmail.com" class="underline">lahsivfoundation@gmail.com</a>.
+  </p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successEl = document.getElementById('form-success');
+  const errorEl = document.getElementById('form-error');
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const label = form?.querySelector('.submit-label') as HTMLElement | null;
+  const spinner = form?.querySelector('.submit-spinner') as HTMLElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successEl?.classList.add('hidden');
+    errorEl?.classList.add('hidden');
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const action = form.action;
+    if (action.includes('YOUR_FORMSPREE_ID')) {
+      errorEl?.classList.remove('hidden');
+      if (errorEl) {
+        errorEl.textContent = 'The contact form is not yet configured. Please email us at lahsivfoundation@gmail.com.';
+      }
+      return;
+    }
+
+    const data = new FormData(form);
+    if (submitBtn) submitBtn.disabled = true;
+    label?.classList.add('opacity-70');
+    spinner?.classList.remove('hidden');
+
+    try {
+      const res = await fetch(action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.reset();
+        successEl?.classList.remove('hidden');
+      } else {
+        errorEl?.classList.remove('hidden');
+      }
+    } catch {
+      errorEl?.classList.remove('hidden');
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+      label?.classList.remove('opacity-70');
+      spinner?.classList.add('hidden');
+    }
+  });
+</script>

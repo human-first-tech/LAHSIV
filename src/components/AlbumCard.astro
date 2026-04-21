@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  cover: string;
+  date: string;
+  count: number;
+  slug: string;
+  featured?: boolean;
+}
+
+const { title, cover, date, count, slug, featured = false } = Astro.props;
+---
+
+<a
+  href={`/gallery/${slug}`}
+  class={`group relative block overflow-hidden rounded-2xl border border-ash shadow-sm hover:shadow-xl transition-all duration-500 ${featured ? 'aspect-[16/9]' : 'aspect-[4/5]'}`}
+>
+  <!-- Cover image -->
+  <img
+    src={cover}
+    alt={`${title} cover photo`}
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+    onerror="this.style.display='none';"
+  />
+
+  <!-- Dark gradient for text legibility -->
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 bg-gradient-to-t from-teal via-teal/60 to-transparent opacity-90"
+  ></div>
+
+  <!-- Coral accent bar on hover -->
+  <div
+    aria-hidden="true"
+    class="absolute top-6 left-6 h-[2px] w-10 bg-coral transition-all duration-500 group-hover:w-20"
+  ></div>
+
+  <!-- Text content -->
+  <div class={`absolute inset-x-0 bottom-0 p-6 md:p-8 ${featured ? 'md:p-10' : ''} text-sand`}>
+    <p class="text-coral text-xs font-semibold tracking-[0.25em] uppercase mb-3 flex items-center gap-3">
+      <span>{date}</span>
+      <span aria-hidden="true" class="block w-1 h-1 rounded-full bg-coral"></span>
+      <span>{count} {count === 1 ? 'photo' : 'photos'}</span>
+    </p>
+    <h3 class={`font-serif ${featured ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'} text-sand leading-tight`}>
+      {title}
+    </h3>
+    <div class="mt-4 inline-flex items-center gap-2 text-sand/90 text-sm font-medium">
+      <span class="border-b border-coral/60 pb-0.5 group-hover:border-coral transition-colors">View album</span>
+      <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover:translate-x-1">→</span>
+    </div>
+  </div>
+</a>

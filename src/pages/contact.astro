@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import BankDetails from '../components/BankDetails.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Lahsiv Foundation or support our work through a donation. Based in Port Blair, Andaman and Nicobar Islands."
+  activeRoute="/contact"
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Contact Us"
+    subtitle="We'd love to hear from you — a question, a collaboration, or a contribution."
+  />
+
+  <!-- REACH OUT — form + contact details -->
+  <section class="section-padding">
+    <div class="container-page">
+      <!-- Editorial intro -->
+      <div class="grid grid-cols-12 gap-6 md:gap-12 mb-14 md:mb-16">
+        <div class="col-span-12 md:col-span-7">
+          <p class="eyebrow">Reach out</p>
+          <div aria-hidden="true" class="mt-4 mb-6 h-px w-16 bg-coral"></div>
+          <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.05]">
+            Let's start a <span class="italic">conversation</span>.
+          </h2>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
+          <p class="text-body-lg text-ink/75 leading-relaxed">
+            Whether you'd like to volunteer, partner, or simply learn more — we read every message and usually reply within 48 hours.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-10 lg:gap-14">
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <div class="bg-white border border-ash rounded-2xl p-8 md:p-10 shadow-sm">
+            <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3 mb-5">
+              <span aria-hidden="true" class="block w-5 h-px bg-coral"></span>
+              Send a message
+            </p>
+            <h3 class="font-serif text-2xl md:text-3xl text-teal mb-8 leading-tight">
+              Write to us
+            </h3>
+            <ContactForm formspreeId="YOUR_FORMSPREE_ID" />
+          </div>
+        </div>
+
+        <!-- Contact details -->
+        <aside class="lg:col-span-2">
+          <div class="bg-sand/40 border border-sand rounded-2xl p-8 md:p-10 h-full">
+            <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3 mb-5">
+              <span aria-hidden="true" class="block w-5 h-px bg-coral"></span>
+              Or reach us directly
+            </p>
+            <h3 class="font-serif text-2xl md:text-3xl text-teal mb-8 leading-tight">
+              Get in touch
+            </h3>
+
+            <ul class="space-y-7">
+              <li class="flex gap-4">
+                <div class="shrink-0 w-11 h-11 rounded-xl bg-white border border-ash flex items-center justify-center text-coral">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs tracking-[0.18em] uppercase text-stone font-semibold mb-1.5">Office</p>
+                  <address class="not-italic text-ink/90 leading-relaxed text-sm">
+                    No. 3, 1st Floor, Block-B,<br />
+                    Harmony Complex, M.G. Road,<br />
+                    Junglighat, Port Blair – 744103,<br />
+                    A&amp;N Islands.
+                  </address>
+                </div>
+              </li>
+
+              <li class="flex gap-4">
+                <div class="shrink-0 w-11 h-11 rounded-xl bg-white border border-ash flex items-center justify-center text-coral">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs tracking-[0.18em] uppercase text-stone font-semibold mb-1.5">Email</p>
+                  <a href="mailto:lahsivfoundation@gmail.com" class="text-ink font-medium text-sm border-b border-coral/50 hover:border-coral hover:text-coral transition-colors break-all">
+                    lahsivfoundation@gmail.com
+                  </a>
+                </div>
+              </li>
+
+              <li class="flex gap-4">
+                <div class="shrink-0 w-11 h-11 rounded-xl bg-white border border-ash flex items-center justify-center text-coral">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs tracking-[0.18em] uppercase text-stone font-semibold mb-1.5">Phone</p>
+                  <a href="tel:+919963077855" class="text-ink font-medium text-sm border-b border-coral/50 hover:border-coral hover:text-coral transition-colors">
+                    +91 99630 77855
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE — teal-washed decorative section -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <!-- Color blobs -->
+    <div
+      aria-hidden="true"
+      class="absolute -top-24 -right-20 w-[28rem] h-[28rem] rounded-full bg-coral/20 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute -bottom-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-sand/15 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 opacity-[0.07] pointer-events-none"
+      style="background-image: radial-gradient(circle at 1px 1px, #FFF3B0 1px, transparent 0); background-size: 28px 28px;"
+    ></div>
+
+    <div class="relative container-page section-padding">
+      <div class="grid grid-cols-12 gap-10 md:gap-14 items-start">
+        <!-- Why donate -->
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-coral text-xs font-semibold tracking-[0.28em] uppercase flex items-center gap-3 mb-5">
+            <span aria-hidden="true" class="block w-6 h-px bg-coral"></span>
+            Donate
+          </p>
+          <h2 class="font-serif text-3xl md:text-5xl text-sand leading-[1.05]">
+            Support our <span class="italic">work</span>.
+          </h2>
+          <p class="mt-6 text-white/90 text-lg leading-relaxed max-w-md">
+            Your contribution helps us reach more girls and young athletes across the Andaman and Nicobar Islands.
+          </p>
+
+          <ul class="mt-10 space-y-5 text-white/90">
+            <li class="flex gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-coral/25 text-sand flex items-center justify-center mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <p class="text-sm md:text-base leading-relaxed">
+                Donations are tax-exempt under <strong class="text-sand">Section 80G</strong> of the Indian Income Tax Act.
+              </p>
+            </li>
+            <li class="flex gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-coral/25 text-sand flex items-center justify-center mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <p class="text-sm md:text-base leading-relaxed">
+                100% of funds go directly to program delivery in the Islands.
+              </p>
+            </li>
+            <li class="flex gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-coral/25 text-sand flex items-center justify-center mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              <p class="text-sm md:text-base leading-relaxed">
+                Every ₹ reaches a classroom, a football field, or a girl's education.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bank details card -->
+        <div id="donate" class="col-span-12 lg:col-span-7 scroll-mt-24">
+          <BankDetails />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

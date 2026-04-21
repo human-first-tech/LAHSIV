@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import ImpactStat from '../components/ImpactStat.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Lahsiv Foundation — Nurturing sports talent and promoting girl child education in the Andaman and Nicobar Islands."
+  activeRoute="/"
+>
+  <Hero
+    headline="LAHSIV"
+    subheadline="Nurturing sports talent and promoting girl child education in the Andaman and Nicobar Islands"
+    primaryCTA={{ label: 'Our Work', href: '/work' }}
+  />
+
+  <!-- MISSION -->
+  <section class="section-padding">
+    <div class="container-page">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-14 items-start">
+        <!-- Text left (7/12) -->
+        <div class="md:col-span-7">
+          <p class="eyebrow mb-6">Our Mission</p>
+          <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.1]">
+            Every child deserves to learn, grow, and shine.
+          </h2>
+
+          <p class="mt-10 font-serif text-xl md:text-2xl text-ink/90 leading-[1.5] first-letter:font-serif first-letter:font-semibold first-letter:text-[4rem] md:first-letter:text-[4.75rem] first-letter:leading-[0.9] first-letter:text-coral first-letter:float-left first-letter:pr-3 first-letter:pt-1 first-letter:-ml-0.5">
+            At Lahsiv Foundation, our mission is to create a more inclusive and empowered future by focusing on two core areas: education and sports.
+          </p>
+
+          <div class="mt-10 space-y-6 text-body-lg text-ink/85 leading-relaxed">
+            <p>
+              Through <strong class="text-teal font-semibold">RISE</strong> (Reach, Inspire, Support, Educate), we promote girl child education, ensuring every girl has access to quality learning, the tools to succeed, and the confidence to shape her own future.
+            </p>
+            <p>
+              Through <strong class="text-teal font-semibold">SHINE</strong> (Support, Harness, Inspire, Nurture, Elevate), we support tribal youth in the Andaman and Nicobar Islands by fostering their football talent, using sports as a powerful tool to build discipline, leadership, and community pride.
+            </p>
+            <p>
+              Together, RISE and SHINE embody our belief that every child, regardless of background, deserves the opportunity to learn, grow, and shine.
+            </p>
+          </div>
+
+          <a href="/about" class="mt-10 inline-flex items-center gap-2 font-medium text-teal group">
+            <span class="border-b border-coral/60 pb-0.5 group-hover:border-coral transition-colors">Learn more</span>
+            <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+
+        <!-- Poster right (5/12) -->
+        <div class="md:col-span-5 md:sticky md:top-28">
+          <div class="relative mx-auto max-w-md md:max-w-none">
+            <!-- Offset coral frame -->
+            <div
+              aria-hidden="true"
+              class="absolute -top-3 -left-3 w-full h-full rounded-2xl border-2 border-coral/70 -z-10"
+            ></div>
+            <!-- Image -->
+            <div class="rounded-2xl overflow-hidden bg-white border border-ash shadow-xl">
+              <img
+                src="/images/mission.jpg"
+                alt="Lahsiv Foundation — RISE and SHINE programs"
+                class="w-full h-auto object-cover"
+                onerror="this.style.display='none';"
+              />
+            </div>
+            <!-- Caption chip -->
+            <div class="absolute -bottom-4 right-4 bg-teal text-sand text-xs tracking-[0.22em] uppercase px-4 py-2 rounded-full font-semibold shadow-md">
+              Since 2021
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="relative bg-sand/40 border-y border-sand">
+    <div class="container-page section-padding">
+      <div class="max-w-3xl mb-14 md:mb-16">
+        <p class="eyebrow mb-6">Programs</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.1]">
+          Two programs, one shared belief.
+        </h2>
+        <p class="mt-6 text-body-lg text-ink/75 leading-relaxed max-w-2xl">
+          Each is distinct in method, united in purpose — opening real doors for young people who too often find them closed.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <ProgramCard
+          icon="book"
+          title="RISE"
+          tagline="Reach · Inspire · Support · Educate"
+          body="Empowering girls through access to quality education, mentorship, and the resources they need to pursue their dreams."
+          href="/work#rise"
+        />
+        <ProgramCard
+          icon="football"
+          title="SHINE"
+          tagline="Support · Harness · Inspire · Nurture · Elevate"
+          body="Nurturing tribal youth football talent in the Andaman and Nicobar Islands through training, mentorship, and opportunity."
+          href="/work#shine"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section-padding">
+    <div class="container-page">
+      <div class="max-w-3xl mb-16 md:mb-20">
+        <p class="eyebrow mb-6">Impact</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-teal leading-[1.1]">
+          Real outcomes in real communities.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12 md:gap-8">
+        <ImpactStat
+          number="1"
+          label="Nurse fully sponsored through a 3-year nursing course in Chennai."
+        />
+        <ImpactStat
+          number="75"
+          label="Girls receiving monthly sanitary material support in partnership with Need Base India."
+        />
+        <ImpactStat
+          number="6"
+          label="Years of monthly food and study equipment support to Pranab Kanya Sangh — since 2021."
+        />
+      </div>
+
+      <div class="mt-16 md:mt-20 text-center">
+        <a href="/impact-stories" class="inline-flex items-center gap-2 font-medium text-teal group">
+          <span class="border-b border-coral/60 pb-0.5 group-hover:border-coral transition-colors">Read impact stories</span>
+          <span aria-hidden="true" class="text-coral transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA — teal, flows into footer -->
+  <section class="relative bg-teal text-white overflow-hidden">
+    <!-- Color blobs for depth -->
+    <div
+      aria-hidden="true"
+      class="absolute -top-24 -right-20 w-[28rem] h-[28rem] rounded-full bg-coral/18 blur-3xl pointer-events-none"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="absolute -bottom-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-sand/12 blur-3xl pointer-events-none"
+    ></div>
+
+    <div class="relative container-page py-20 md:py-24">
+      <div class="grid grid-cols-12 gap-8 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <p class="text-coral text-xs font-semibold tracking-[0.25em] uppercase mb-6">
+            Partner with us
+          </p>
+          <h2 class="font-serif text-3xl md:text-5xl text-sand leading-[1.1]">
+            Interested in working together or supporting our mission?
+          </h2>
+          <p class="mt-5 text-white/85 text-lg md:text-xl max-w-xl leading-relaxed">
+            Get in touch — we'd love to hear from you.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4 md:justify-self-end">
+          <a href="/contact" class="btn-coral text-base px-8 py-4 whitespace-nowrap shadow-lg shadow-black/20">
+            Contact us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
