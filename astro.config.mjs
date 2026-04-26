@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://human-first-tech.github.io',
-  base: '/LAHSIV',
+  site: 'https://lahsivfoundation.com',
+  base: '/',
   trailingSlash: 'ignore',
   integrations: [tailwind(), sitemap()],
 });
